@@ -67,7 +67,7 @@ public class CarsDTO {
                 this.getHorsepower() <= 0 ||
                 this.getModel() == null ||
                 this.getModel().equals("") ||
-//                this.getModel().charAt(0) == '-' ||
+                this.getModel().charAt(0) == '-' ||
                 this.getOwnerId() == null);
     }
 }

@@ -65,8 +65,8 @@ public class PersonDTO {
     public boolean personValidation() {
 
         return (this.getId() == null ||
+                this.getId() == 0 ||
                 this.getName() == null ||
-//                this.getName().equals("") ||
                 this.getBirthdate() == null);
     }
 }

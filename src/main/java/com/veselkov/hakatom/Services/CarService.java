@@ -63,7 +63,7 @@ public class CarService {
             carsDTO.setId(cars.getId());
             carsDTO.setHorsepower(cars.getHorsepower());
             carsDTO.setOwnerId(cars.getOwnerId());
-            carsDTO.setModel(cars.getModels().getModel() + "-" + cars.getModels().getVendors().getVendorName());
+            carsDTO.setModel(cars.getModels().getVendors().getVendorName()+ "-" + cars.getModels().getModel() );
             carsDTOSList.add(carsDTO);
         }
         return carsDTOSList;

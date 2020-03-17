@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
@@ -68,8 +67,11 @@ public class PersonController {
             return ResponseEntity.notFound().build();
         }
 
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd.MM.yyyy");
-        Date date = simpleDateFormat.parse(simpleDateFormat.format(personDTO.getBirthdate()));
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd.MM.yyyy", Locale.getDefault());
+        SimpleDateFormat simpleDateFormat1 = new SimpleDateFormat("dd.MM.yyyy", Locale.getDefault());
+        String date1 = simpleDateFormat1.format(personDTO.getBirthdate());
+        Date date = simpleDateFormat.parse(date1);
+
 
         PersonDTO person = new PersonDTO();
         person.setId(personDTO.getId());

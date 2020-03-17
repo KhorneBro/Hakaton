@@ -32,8 +32,6 @@ public class Person implements Serializable {
     @NotNull
     @Past
     @DateTimeFormat(pattern = "dd.MM.yyyy")
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd.MM.yyyy", lenient = OptBoolean.FALSE)
-    @Temporal(TemporalType.DATE)
     private Date birthdate;
 
     public Person(String name, Date birthdate) {
