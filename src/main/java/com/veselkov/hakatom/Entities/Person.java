@@ -33,7 +33,7 @@ public class Person implements Serializable {
     @Past
     @DateTimeFormat(pattern = "dd.MM.yyyy")
     private Date birthdate;
-
+    
     public Person(String name, Date birthdate) {
         this.name = name;
         this.birthdate = birthdate;

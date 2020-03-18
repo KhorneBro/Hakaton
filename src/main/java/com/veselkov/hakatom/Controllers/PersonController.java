@@ -1,6 +1,7 @@
 package com.veselkov.hakatom.Controllers;
 
 import com.veselkov.hakatom.DTO.PersonDTO;
+import com.veselkov.hakatom.DTO.PersonWithCarsDTO;
 import com.veselkov.hakatom.DTO.StatisticDTO;
 import com.veselkov.hakatom.Services.CarService;
 import com.veselkov.hakatom.Services.PersonService;
@@ -67,16 +68,12 @@ public class PersonController {
             return ResponseEntity.notFound().build();
         }
 
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd.MM.yyyy", Locale.getDefault());
-        SimpleDateFormat simpleDateFormat1 = new SimpleDateFormat("dd.MM.yyyy", Locale.getDefault());
-        String date1 = simpleDateFormat1.format(personDTO.getBirthdate());
-        Date date = simpleDateFormat.parse(date1);
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd.MM.yyyy");
 
-
-        PersonDTO person = new PersonDTO();
+        PersonWithCarsDTO person = new PersonWithCarsDTO();
         person.setId(personDTO.getId());
         person.setName(personDTO.getName());
-        person.setBirthdate(date);
+        person.setBirthdate(simpleDateFormat.format(personDTO.getBirthdate()));
         person.setCars(list);
 
         return person;
